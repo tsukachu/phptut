@@ -74,7 +74,9 @@ Vagrant.configure("2") do |config|
     yum -y install https://rpms.remirepo.net/enterprise/remi-release-6.rpm
     yum -y --enablerepo=remi-php54 install php
 
-    yum -y --enablerepo=remi install mysql-server
+    yum -y --enablerepo=remi-php54 install mysql-server
+
+    yum -y --enablerepo=remi-php54 install phpMyAdmin
 
     yum -y install java-1.8.0-openjdk
     wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo

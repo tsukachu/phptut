@@ -10,4 +10,10 @@ class UserTest extends TestCase
     {
         $this->assertTrue(class_exists('Models\User'));
     }
+
+    public function testCreateUser()
+    {
+        $user = new User();
+        $this->assertTrue((bool) $user);
+    }
 }

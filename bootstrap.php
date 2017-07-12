@@ -12,7 +12,7 @@ $process = proc_open($cmd, $descriptorspec, $pipes);
 
 // End the built-in web server at the end of the test.
 register_shutdown_function(
-  function () use ($process) {
-    proc_close($process);
-  }
+    function () use ($process) {
+        proc_close($process);
+    }
 );

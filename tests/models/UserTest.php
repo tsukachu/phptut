@@ -6,6 +6,11 @@ use Models\User;
 
 class UserTest extends TestCase
 {
+    public function setUp()
+    {
+        $this->user = new User('foo@bar.com', 'testpassword');
+    }
+
     public function testIsClassExists()
     {
         $this->assertTrue(class_exists('Models\User'));
@@ -13,7 +18,16 @@ class UserTest extends TestCase
 
     public function testCreateUser()
     {
-        $user = new User();
+        $user = new User('foo@bar.com', 'testpassword');
         $this->assertTrue((bool) $user);
+    }
+
+    public function testCreateUserHasAttribute()
+    {
+        $this->assertObjectHasAttribute('email', $this->user);
+        $this->assertObjectHasAttribute('password', $this->user);
+
+        $this->assertEquals($this->user->email, 'foo@bar.com');
+        $this->assertEquals($this->user->password, 'testpassword');
     }
 }

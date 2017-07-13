@@ -39,4 +39,24 @@ class UserTest extends TestCase
     {
         $this->user->undefined;
     }
+
+    /**
+     * @expectedException Exception
+     * @expectedExceptionMessage "email": Enter a valid number of characters
+     */
+    public function testValidEmailTooShort()
+    {
+        $user = new User('', '');
+        $user->valid_email();
+    }
+
+    /**
+     * @expectedException Exception
+     * @expectedExceptionMessage "email": Enter a valid number of characters
+     */
+    public function testValidEmailTooLong()
+    {
+        $user = new User(str_repeat('A', 255), '');
+        $user->valid_email();
+    }
 }

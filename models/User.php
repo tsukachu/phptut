@@ -2,6 +2,8 @@
 
 namespace Models;
 
+use Exception;
+
 class User
 {
     private $email = null;

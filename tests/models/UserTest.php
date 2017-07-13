@@ -30,4 +30,13 @@ class UserTest extends TestCase
         $this->assertEquals($this->user->email, 'foo@bar.com');
         $this->assertEquals($this->user->password, 'testpassword');
     }
+
+    /**
+     * @expectedException Exception
+     * @expectedExceptionMessage Models\User object has no attribute "undefined"
+     */
+    public function testThrowExeception()
+    {
+        $this->user->undefined;
+    }
 }

@@ -11,5 +11,9 @@ class UserValidators
         if (!(0 < strlen($email) and strlen($email) <= 254)) {
             throw new Exception(sprintf('"email": Enter a valid number of characters'));
         }
+
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            throw new Exception(sprintf('"email": Enter a valid email address'));
+        }
     }
 }

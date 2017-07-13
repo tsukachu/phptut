@@ -59,4 +59,14 @@ class UserTest extends TestCase
         $user = new User(str_repeat('A', 255), '');
         $user->valid_email();
     }
+
+    /**
+     * @expectedException Exception
+     * @expectedExceptionMessage "email": Enter a valid email address
+     */
+    public function testValidEmailIsInvalid()
+    {
+        $user = new User('foobar', '');
+        $user->valid_email();
+    }
 }

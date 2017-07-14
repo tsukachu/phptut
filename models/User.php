@@ -32,4 +32,9 @@ class User
     {
         UserValidators::validate_email($this->email);
     }
+
+    public function valid_password()
+    {
+        UserValidators::validate_password($this->password);
+    }
 }

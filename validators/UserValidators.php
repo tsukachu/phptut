@@ -16,4 +16,11 @@ class UserValidators
             throw new Exception(sprintf('"email": Enter a valid email address'));
         }
     }
+
+    public static function validate_password($password)
+    {
+        if (strlen($password) < 8) {
+            throw new Exception(sprintf('"password": This password must contain at least 8 characters'));
+        }
+    }
 }

@@ -69,4 +69,14 @@ class UserTest extends TestCase
         $user = new User('foobar', '');
         $user->valid_email();
     }
+
+    /**
+     * @expectedException Exception
+     * @expectedExceptionMessage "password": This password must contain at least 8 characters
+     */
+    public function testValidPasswordTooShort()
+    {
+        $user = new User('', '');
+        $user->valid_password();
+    }
 }

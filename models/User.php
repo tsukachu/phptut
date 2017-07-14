@@ -28,6 +28,19 @@ class User
         }
     }
 
+    public function is_valid()
+    {
+        $vars = get_object_vars($this);
+        $keys = array_keys($vars);
+
+        foreach ($keys as $key) {
+            $func = "valid_$key";
+            $this->$func();
+        }
+
+        return true;
+    }
+
     public function valid_email()
     {
         UserValidators::validate_email($this->email);

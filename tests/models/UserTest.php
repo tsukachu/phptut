@@ -79,4 +79,18 @@ class UserTest extends TestCase
         $user = new User('', '');
         $user->valid_password();
     }
+
+    /**
+     * @expectedException Exception
+     */
+    public function testValidAllRaiseException()
+    {
+        $user = new User('', '');
+        $user->is_valid();
+    }
+
+    public function testValidAllReturnTrue()
+    {
+        $this->assertTrue($this->user->is_valid());
+    }
 }

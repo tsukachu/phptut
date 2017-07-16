@@ -11,5 +11,8 @@ $urls = [
 foreach ($urls as $url => $controller) {
     if (preg_match(sprintf('/^%s$/', addcslashes($url, '/')), $uri)) {
         $controller::run();
+        exit;
     }
 }
+
+Controllers\NotFound::run();

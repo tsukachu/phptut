@@ -6,7 +6,7 @@ use Exception;
 
 class UserValidators
 {
-    public static function validate_email($email)
+    public static function validateEmail($email)
     {
         if (!(0 < strlen($email) and strlen($email) <= 254)) {
             throw new Exception(sprintf('"email": Enter a valid number of characters'));
@@ -17,7 +17,7 @@ class UserValidators
         }
     }
 
-    public static function validate_password($password)
+    public static function validatePassword($password)
     {
         if (strlen($password) < 8) {
             throw new Exception(sprintf('"password": This password must contain at least 8 characters'));

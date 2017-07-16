@@ -28,26 +28,26 @@ class User
         }
     }
 
-    public function is_valid()
+    public function isValid()
     {
         $vars = get_object_vars($this);
         $keys = array_keys($vars);
 
         foreach ($keys as $key) {
-            $func = "valid_$key";
+            $func = sprintf('valid%s', ucfirst($key));
             $this->$func();
         }
 
         return true;
     }
 
-    public function valid_email()
+    public function validEmail()
     {
-        UserValidators::validate_email($this->email);
+        UserValidators::validateEmail($this->email);
     }
 
-    public function valid_password()
+    public function validPassword()
     {
-        UserValidators::validate_password($this->password);
+        UserValidators::validatePassword($this->password);
     }
 }

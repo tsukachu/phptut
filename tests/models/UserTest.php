@@ -47,7 +47,7 @@ class UserTest extends TestCase
     public function testValidEmailTooShort()
     {
         $user = new User('', '');
-        $user->valid_email();
+        $user->validEmail();
     }
 
     /**
@@ -57,7 +57,7 @@ class UserTest extends TestCase
     public function testValidEmailTooLong()
     {
         $user = new User(str_repeat('A', 255), '');
-        $user->valid_email();
+        $user->validEmail();
     }
 
     /**
@@ -67,7 +67,7 @@ class UserTest extends TestCase
     public function testValidEmailIsInvalid()
     {
         $user = new User('foobar', '');
-        $user->valid_email();
+        $user->validEmail();
     }
 
     /**
@@ -77,7 +77,7 @@ class UserTest extends TestCase
     public function testValidPasswordTooShort()
     {
         $user = new User('', '');
-        $user->valid_password();
+        $user->validPassword();
     }
 
     /**
@@ -86,11 +86,11 @@ class UserTest extends TestCase
     public function testValidAllRaiseException()
     {
         $user = new User('', '');
-        $user->is_valid();
+        $user->isValid();
     }
 
     public function testValidAllReturnTrue()
     {
-        $this->assertTrue($this->user->is_valid());
+        $this->assertTrue($this->user->isValid());
     }
 }

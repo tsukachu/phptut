@@ -2,14 +2,10 @@
 
 namespace Controllers;
 
-class Index
-{
-    public static function run()
-    {
-        $method = strtolower($_SERVER['REQUEST_METHOD']);
-        self::$method();
-    }
+use Controllers\Base;
 
+class Index extends Base
+{
     public static function get()
     {
         echo 'hello,world';

@@ -3,6 +3,8 @@
 use PHPUnit\Framework\TestCase;
 use GuzzleHttp\Client;
 
+use Controllers\User\Detail;
+
 class UsersTest extends TestCase
 {
     public function setUp()
@@ -16,5 +18,13 @@ class UsersTest extends TestCase
 
         $this->assertEquals($response->getStatusCode(), '200');
         $this->assertEquals($response->getBody(), '1');
+    }
+
+    public function testGetUid()
+    {
+        $uri = '/users/1/';
+        $uid = Detail::getUid($uri);
+
+        $this->assertSame($uid, 1);
     }
 }

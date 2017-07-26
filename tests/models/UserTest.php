@@ -93,4 +93,9 @@ class UserTest extends TestCase
     {
         $this->assertTrue($this->user->isValid());
     }
+
+    public function testValidAllReturn()
+    {
+        $this->assertTrue($this->user->isValid());
+    }
 }
